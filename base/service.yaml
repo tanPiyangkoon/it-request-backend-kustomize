@@ -1,0 +1,33 @@
+# apiVersion: "v1"
+# kind: "Service"
+# metadata:
+#   name: "it-request-backend"
+#   namespace: "production"
+# spec:
+#   selector:
+#     app: "it-request-backend"
+#   ports:
+#   - protocol: "TCP"
+#     port: 80
+#     targetPort: 80
+#     name: "http"
+#   type: "ClusterIP"
+
+
+
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: it-request-backend
+  namespace: production
+spec:
+  selector:
+    app: it-request-backend
+  ports:
+    - name: http
+      protocol: TCP
+      port: 3001          # พอร์ตของ Service ภายในคลัสเตอร์
+      targetPort: 3001    # พอร์ตของ container (NGINX)
+      nodePort: 31000   # พอร์ตภายนอก (ให้เข้าได้จาก LAN)
+  type: NodePort        # 👈 เปลี่ยนจาก ClusterIP เป็น NodePort

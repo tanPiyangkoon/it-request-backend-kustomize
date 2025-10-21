@@ -1,0 +1,30 @@
+apiVersion: "apps/v1"
+kind: "Deployment"
+metadata:
+  name: it-request-backend
+  namespace: "production"
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: it-request-backend
+  template:
+    metadata:
+      labels:
+        app: it-request-backend
+    spec:
+      containers:
+      - name: it-request-backend
+        image: tanpiyangkoon/it-request-backend
+        resources:
+          limits:
+            cpu: 200m
+            memory: 512Mi
+          requests:
+            cpu: 100m
+            memory: 256Mi
+        envFrom:
+          - configMapRef:
+              name: it-request-backend-config
+
+    
