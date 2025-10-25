@@ -27,11 +27,6 @@ spec:
           requests:
             cpu: 100m
             memory: 256Mi
-        envFrom:
-        - name: NODE_ENV
-          valueFrom:
-            configMapKeyRef:
-              name: it-request-backend-config
-              key: NODE_ENV
+        
 
     
