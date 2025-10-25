@@ -11,6 +11,6 @@ labels:
     app: it-request-backend
 configMapGenerator:
   - name: it-request-backend-config
-    namespace: production
+    namespace: staging
     envs: [.env]
     behavior: create
