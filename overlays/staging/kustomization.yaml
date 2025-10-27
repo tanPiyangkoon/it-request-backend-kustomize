@@ -17,4 +17,4 @@ resources:
   - ../../base
 images:
   - name: tanpiyangkoon/it-request-backend
-    newTag: "staging-ed58ac04b15-14"
+    newTag: "staging-cd3b929aac3-15"
